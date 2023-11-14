@@ -113,6 +113,7 @@
 <!--        <module>labx-29-spring-cloud-consul-bus</module>-->
 <!--        <module>labx-30-spring-cloud-grpc</module>-->
         <module>lab-72-minio</module>
+        <module>lab-12-mybatis/ibatis-only</module>
     </modules>
 
 </project>

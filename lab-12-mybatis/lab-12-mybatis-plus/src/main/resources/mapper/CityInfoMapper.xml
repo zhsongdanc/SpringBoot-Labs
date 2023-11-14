@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.iocoder.springboot.lab12.mybatis.mapper.CityInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.iocoder.springboot.lab12.mybatis.dataobject.CityInfo">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="time" column="time" jdbcType="VARCHAR"/>
+            <result property="creater" column="creater" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,city,time,
+        creater
+    </sql>
+    <select id="selectALl"
+            resultType="cn.iocoder.springboot.lab12.mybatis.dataobject.CityInfo">
+        select *
+        from city_info
+    </select>
+</mapper>

@@ -1,10 +1,10 @@
 spring:
   # datasource 数据源配置内容
   datasource:
-    url: jdbc:mysql://47.112.193.81:3306/testb5f4?useSSL=false&useUnicode=true&characterEncoding=UTF-8
-    driver-class-name: com.mysql.jdbc.Driver
-    username: testb5f4
-    password: F4df4db0ed86@11
+    url: jdbc:postgresql://9.135.68.122:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres_admin
+    password: HGzpq*5743eKqj
 
 # mybatis-plus 配置内容
 mybatis-plus:

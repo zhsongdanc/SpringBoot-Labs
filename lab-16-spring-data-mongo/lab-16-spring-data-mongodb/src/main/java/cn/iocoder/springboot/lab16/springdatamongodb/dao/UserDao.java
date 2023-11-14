@@ -59,11 +59,11 @@ public class UserDao {
         mongoTemplate.updateFirst(new Query(Criteria.where("_id").is(entity.getId())), update, UserDO.class);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         mongoTemplate.remove(new Query(Criteria.where("_id").is(id)), UserDO.class);
     }
 
-    public UserDO findById(Integer id) {
+    public UserDO findById(String id) {
         return mongoTemplate.findOne(new Query(Criteria.where("_id").is(id)), UserDO.class);
     }
 
@@ -71,7 +71,7 @@ public class UserDao {
         return mongoTemplate.findOne(new Query(Criteria.where("username").is(username)), UserDO.class);
     }
 
-    public List<UserDO> findAllById(List<Integer> ids) {
+    public List<UserDO> findAllById(List<String> ids) {
         return mongoTemplate.find(new Query(Criteria.where("_id").in(ids)), UserDO.class);
     }
 

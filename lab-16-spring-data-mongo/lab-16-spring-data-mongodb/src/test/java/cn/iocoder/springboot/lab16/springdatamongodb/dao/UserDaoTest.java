@@ -23,7 +23,7 @@ public class UserDaoTest {
     public void testInsert() {
         // 创建 UserDO 对象
         UserDO user = new UserDO();
-        user.setId(1); // 这里先临时写死一个 ID 编号，后面演示自增 ID 的时候，在修改这块
+        user.setId("1"); // 这里先临时写死一个 ID 编号，后面演示自增 ID 的时候，在修改这块
         user.setUsername("yudaoyuanma");
         user.setPassword("buzhidao");
         user.setCreateTime(new Date());
@@ -42,7 +42,7 @@ public class UserDaoTest {
     public void testUpdate() {
         // 创建 UserDO 对象
         UserDO updateUser = new UserDO();
-        updateUser.setId(1);
+        updateUser.setId("1");
         updateUser.setUsername("nicai");
 
         // 执行更新
@@ -51,19 +51,25 @@ public class UserDaoTest {
 
     @Test // 根据 ID 编号，删除一条记录
     public void testDelete() {
-        userDao.deleteById(1);
+        userDao.deleteById("1");
     }
 
     @Test // 根据 ID 编号，查询一条记录
     public void testSelectById() {
-        UserDO userDO = userDao.findById(1);
+        UserDO userDO = userDao.findById("1");
         System.out.println(userDO);
     }
 
     @Test // 根据 ID 编号数组，查询多条记录
     public void testSelectByIds() {
-        List<UserDO> users = userDao.findAllById(Arrays.asList(1, 4));
+        List<UserDO> users = userDao.findAllById(Arrays.asList("1", "4"));
         users.forEach(System.out::println);
+    }
+
+    @Test
+    public void test3() {
+        int[] arrays = {9,4,2};
+        Arrays.asList(arrays);
     }
 
 }

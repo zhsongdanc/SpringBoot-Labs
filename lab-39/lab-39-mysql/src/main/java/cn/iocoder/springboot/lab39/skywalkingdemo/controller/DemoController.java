@@ -1,5 +1,6 @@
 package cn.iocoder.springboot.lab39.skywalkingdemo.controller;
 
+import cn.iocoder.springboot.lab39.skywalkingdemo.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,13 +17,15 @@ public class DemoController {
 
     @GetMapping("/mysql")
     public String mysql() {
-        this.selectById(1);
-        return "mysql";
+        User user = this.selectById(45);
+
+        System.out.println(user);
+        return user.toString();
     }
 
-    public Object selectById(Integer id) {
-        return template.queryForObject("SELECT id, username, password FROM t_user WHERE id = ?",
-                new BeanPropertyRowMapper<>(Object.class), // 结果转换成对应的对象。Object 理论来说是 UserDO.class ，这里偷懒了。
+    public User selectById(Integer id) {
+        return template.queryForObject("SELECT id, username, password FROM tb_user WHERE id = ?",
+                new BeanPropertyRowMapper<>(User.class), // 结果转换成对应的对象。Object 理论来说是 UserDO.class ，这里偷懒了。
                 id);
     }
 

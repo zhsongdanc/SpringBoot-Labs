@@ -1,9 +1,11 @@
 package cn.iocoder.springboot.lab12.mybatis.mapper;
 
 import cn.iocoder.springboot.lab12.mybatis.Application;
+import cn.iocoder.springboot.lab12.mybatis.dataobject.CityInfo;
 import cn.iocoder.springboot.lab12.mybatis.dataobject.UserDO;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ public class UserMapperTest {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private CityInfoMapper cityInfoMapper;
 
     @Test
     public void testInsert() {
@@ -61,6 +66,17 @@ public class UserMapperTest {
         Date createTime = new Date(2018 - 1990, Calendar.FEBRUARY, 24); // 临时 Demo ，实际不建议这么写
         page = userMapper.selectPageByCreateTime(page, createTime);
         System.out.println("users：" + page.getRecords().size());
+    }
+
+
+    @Test
+    public void insertWithCityInfoMapper() {
+        CityInfo cityInfo = new CityInfo();
+//        cityInfo.setId("131");
+        cityInfo.setCity("shenzhen");
+        cityInfo.setCreater("sss");
+        int insert = cityInfoMapper.insert(cityInfo);
+        Assert.assertEquals(1, insert);
     }
 
 }

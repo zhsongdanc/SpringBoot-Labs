@@ -25,12 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 设置 Form 表单登陆
                 .formLogin()
 //                    .loginPage("/login") // 登陆 URL 地址
-                    .permitAll() // 所有用户可访问
-                .and()
-                // 配置退出相关
-                .logout()
-//                    .logoutUrl("/logout") // 退出 URL 地址
-                    .permitAll(); // 所有用户可访问
+                    .disable(); // 所有用户可访问
+//                .and()
+//                // 配置退出相关
+//                .logout()
+////                    .logoutUrl("/logout") // 退出 URL 地址
+//                    .permitAll(); // 所有用户可访问
     }
 
     @Override

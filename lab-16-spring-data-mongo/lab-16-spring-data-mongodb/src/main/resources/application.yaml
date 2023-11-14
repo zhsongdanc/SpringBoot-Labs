@@ -4,9 +4,7 @@ spring:
     mongodb:
       host: 127.0.0.1
       port: 27017
-      database: yourdatabase
-      username: test01
-      password: password01
+      database: test
       # 上述属性，也可以只配置 uri
 
 logging:

@@ -1,5 +1,6 @@
 package cn.iocoder.springboot.lab16.springdatamongodb.dataobject;
 
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -43,17 +44,11 @@ public class UserDO {
             return this;
         }
 
-        @Override
-        public String toString() {
-            return "Profile{" +
-                    "nickname='" + nickname + '\'' +
-                    ", gender=" + gender +
-                    '}';
-        }
+
     }
 
     @Id
-    private Integer id;
+    private String id;
     /**
      * 账号
      */
@@ -71,13 +66,16 @@ public class UserDO {
      */
     private Profile profile;
 
-    public Integer getId() {
+    private List<Profile> profiles;
+
+
+
+    public String getId() {
         return id;
     }
 
-    public UserDO setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
-        return this;
     }
 
     public String getUsername() {
@@ -114,6 +112,14 @@ public class UserDO {
     public UserDO setProfile(Profile profile) {
         this.profile = profile;
         return this;
+    }
+
+    public List<Profile> getProfiles() {
+        return profiles;
+    }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
     }
 
     @Override
